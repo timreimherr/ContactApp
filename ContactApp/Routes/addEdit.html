@@ -1,0 +1,35 @@
+﻿
+
+<div class="col-sm-5">
+    <h2 ng-show="showNew">New Contact</h2>
+    <h2 ng-show="showEdit">Edit Contact</h2>
+    <form name="contactForm" role="form">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" name="FirstName" ng-model="contact.FirstName" ng-required="true" />
+            <label class="control-label text-danger"
+                   ng-show="contactForm.$dirty && contactForm.FirstName.$invalid">Please enter your name</label>
+
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="LastName" ng-model="contact.LastName" ng-required="true" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="Email" ng-model="contact.Email" ng-required="true" />
+            <label class="control-label text-danger"
+                   ng-show="contactForm.Email.$touched &&contactForm.Email.$error.email">Please enter a valid email address</label>
+
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" class="form-control" name="Phone" ng-model="contact.Phone" ng-minlength="10" ng-maxlength="10" ng-required="true" />
+            <label class="control-label text-danger"
+                   ng-show="contactForm.Phone.$dirty && contactForm.Phone.$invalid">Please enter your 10 digit phone number</label>
+
+        </div>
+            <a href="#/" class="btn btn-default button-space">Cancel</a>
+            <button class="btn btn-primary" ng-click="save()" ng-disabled="contactForm.$invalid">Save</button>
+    </form>
+</div>
